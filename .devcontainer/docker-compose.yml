@@ -1,0 +1,28 @@
+version: v3.8
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/java:1-21-bullseye
+    volumes:
+      - ..:/workspace
+    command: sleep infinity
+    depends_on:
+      - db
+    networks:
+      - lerndoku-network
+    ports:
+      - 8080:8080
+    
+  db:
+    image: mariadb:11.8-ubi-rc
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - lerndoku-network
+    env_file:
+      - .env
+
+volumes:
+  db-data:
+
+networks:
+  lerndoku-network:
