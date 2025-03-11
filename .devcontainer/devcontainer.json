@@ -1,45 +1,58 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
-	"name": "Lerndoku Editor",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"dockerComposeFile": "./docker-compose.yml",
-	"workspaceFolder": "/workspace",
-	"service": "app",
+  "name": "Lerndoku Editor",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "dockerComposeFile": "./docker-compose.yml",
+  "workspaceFolder": "/workspace",
+  "service": "app",
 
-	"features": {
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "none",
-			"installMaven": "true",
-			"installGradle": "false"
-		},
-		"ghcr.io/devcontainers/features/node:1": {}
-	},
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "none",
+      "installMaven": "true",
+      "installGradle": "false"
+    },
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "java -version",
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "java -version",
 
-	// Configure tool-specific properties.
-	"customizations": {
-		"vscode": {
-			"settings": {
-				"editor.defaultFormatter": "esbenp.prettier-vscode",
-				"[typescript]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
-				"[vue]": {
-					"editor.tabSize": 4
-				}
-			},
-			"extensions": [
-				"esbenp.prettier-vscode"
-			]
-		}
-	}
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[vue]": {
+          "editor.tabSize": 4,
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[java]": {
+          "editor.defaultFormatter": "redhat.java"
+        },
+        "java.cleanup.actions": [
+          "renameFileToType",
+          "addFinalModifier",
+          "organizeImports",
+          "addOverride"
+        ],
+        "java.codeAction.sortMembers.avoidVolatileChanges": true,
+        "java.saveActions.organizeImports": true,
+        "java.sources.organizeImports.starThreshold": 50,
+        "java.sources.organizeImports.staticStarThreshold": 50,
+        "java.format.settings.url": "./eclipse-formatter.xml"
+      },
+      "extensions": ["esbenp.prettier-vscode"]
+    }
+  }
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
 }
