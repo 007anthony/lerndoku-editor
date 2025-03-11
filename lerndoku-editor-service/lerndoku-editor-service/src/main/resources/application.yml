@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: lerndoku-editor-service
+  datasource:
+    username: lerndoku
+    password: password1234
+    url: jdbc:mariadb://db:3306/lerndoku
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create-drop
