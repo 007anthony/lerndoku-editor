@@ -14,6 +14,8 @@ services:
     
   db:
     image: mariadb:11.8-ubi-rc
+    ports:
+      - 3306:3306
     volumes:
       - db-data:/var/lib/mysql
     networks:

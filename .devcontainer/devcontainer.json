@@ -37,10 +37,12 @@
         "[java]": {
           "editor.defaultFormatter": "redhat.java"
         },
+        "[yaml]": {
+          "editor.tabSize": 2
+        },
         "java.cleanup.actions": [
           "renameFileToType",
           "addFinalModifier",
-          "organizeImports",
           "addOverride"
         ],
         "java.codeAction.sortMembers.avoidVolatileChanges": true,
@@ -49,7 +51,7 @@
         "java.sources.organizeImports.staticStarThreshold": 50,
         "java.format.settings.url": "./eclipse-formatter.xml"
       },
-      "extensions": ["esbenp.prettier-vscode"]
+      "extensions": ["esbenp.prettier-vscode", "vmware.vscode-boot-dev-pack"]
     }
   }
 
