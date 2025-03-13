@@ -2,10 +2,14 @@ package ch._anthony.lerndoku_editor_service.model;
 
 import java.util.Date;
 
+import ch._anthony.lerndoku_editor_service.util.DocumentationState;
+
 public class Documentation {
     private Long id;
     private String title;
     private Date createdAt;
+    private Integer semester;
+    private DocumentationState state;
 
     public Long getId() {
         return id;
@@ -29,6 +33,22 @@ public class Documentation {
 
     public void setCreatedAt(final Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Integer getSemester() {
+        return semester;
+    }
+
+    public void setSemester(final Integer semester) {
+        this.semester = semester;
+    }
+
+    public DocumentationState getState() {
+        return state;
+    }
+
+    public void setState(final DocumentationState state) {
+        this.state = state;
     }
 
 }

@@ -1,18 +1,18 @@
-package ch._anthony.lerndoku_editor_service.repository.dao;
+package ch._anthony.lerndoku_editor_service.dao.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
-@Entity
-public class ImageDao {
+@Entity(name = "Image")
+public class ImageEntity {
 
     @Id
     private Long id;
     private String imageUrl;
 
     @OneToOne
-    private DocumentationDao documentation;
+    private DocumentationEntity documentation;
 
     public Long getId() {
         return id;
