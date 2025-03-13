@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    font-family: Helvetica, sans-serif;
+}
+
+a {
+    color: #4E4E4E;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.flex-container {
+    display: flex;
+    gap: 5px;
+}
