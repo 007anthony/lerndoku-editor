@@ -49,7 +49,9 @@
         "java.saveActions.organizeImports": true,
         "java.sources.organizeImports.starThreshold": 50,
         "java.sources.organizeImports.staticStarThreshold": 50,
-        "java.format.settings.url": "./eclipse-formatter.xml"
+        "java.format.settings.url": "./eclipse-formatter.xml",
+        "java.compile.nullAnalysis.mode": "automatic",
+        "java.configuration.updateBuildConfiguration": "automatic"
       },
       "extensions": ["esbenp.prettier-vscode", "vmware.vscode-boot-dev-pack"]
     }

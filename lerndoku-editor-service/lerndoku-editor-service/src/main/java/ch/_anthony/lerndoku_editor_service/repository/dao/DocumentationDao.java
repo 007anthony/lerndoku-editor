@@ -3,17 +3,27 @@ package ch._anthony.lerndoku_editor_service.repository.dao;
 import java.util.Date;
 import java.util.Set;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class DocumentationDao {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date date;
+
+    @CreationTimestamp
+    @Temporal(TemporalType.DATE)
+    private Date createdAt;
     private String title;
 
     @OneToOne
@@ -30,12 +40,12 @@ public class DocumentationDao {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setDate(final Date date) {
-        this.date = date;
+    public void setCreatedAt(final Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getTitle() {
