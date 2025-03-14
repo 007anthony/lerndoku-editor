@@ -13,16 +13,14 @@ export default class DocumentationService {
         semester: number | null,
         state: DocumentationState | null,
     ): Observable<Documentation[]> {
-        const params = new HttpParams();
-
+        let params = new HttpParams();
         if (semester != null) {
-            params.set('semester', semester);
+            params = params.append('semester', semester);
         }
 
         if (state != null) {
-            params.set('state', state);
+            params = params.append('state', state);
         }
-
         return this.http.get<Documentation[]>(this.apiUrl, { params }).pipe(
             map<Documentation[], Documentation[]>((docs: Documentation[]) => {
                 return docs.map((doc) => ({

@@ -1,8 +1,21 @@
-#documentation-table {
+.first-column {
+    text-align: left;
+}
+
+.table-container {
     width: 100%;
     max-width: 1500px;
     min-width: 450px;
-    text-align: center;
     margin: 0 auto;
+}
+
+#documentation-table {
+    width: 100%;
+    text-align: center;
     border-spacing: 15px;
+}
+
+#filter-form {
+    display: flex;
+    gap: 15px;
 }

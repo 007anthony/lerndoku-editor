@@ -1,33 +1,74 @@
 <h1>Lerndokumentationen</h1>
-@if(documentations.length > 0) {
-<table id="documentation-table">
-    <thead>
-        <tr>
-            <th>Titel</th>
-            <th>Semester</th>
-            <th>Status</th>
-            <th>Erstellt am</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for(documentation of documentations; track documentation.id) {
-            <tr>
-                <td>{{ documentation.title }}</td>
-                <td>Semester {{ documentation.semester }}</td>
-                <td>{{ documentation.state.toString() | lowercase }}</td>
-                <td>{{ documentation.createdAt | date:'dd.MM.yyyy' }}</td>
-                <td class="flex-container">
-                    <a href="#" class="material-icons">delete</a>
-                    @if(documentation.state === DocumentationState.OPEN) {
-                        <a href="#" class="material-icons">edit</a>
-                    } @else {
-                        <a href="#" class="material-icons">open_in_new</a>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-} @else {
-    <p>Keine Lerndokus Verfügbar. Erstelle eine <a href="/create">neue Lerndoku</a>.</p>
-}
+<div class="table-container">
+    <div id="filter-form">
+        <label>
+            Semester
+            <select
+                [(ngModel)]="semester"
+                name="semester"
+                (change)="changeSemester()"
+            >
+                <option selected="true" [value]="null">Alle</option>
+                <option value="1">1. Semester</option>
+                <option value="2">2. Semester</option>
+                <option value="3">3. Semester</option>
+                <option value="4">4. Semester</option>
+                <option value="5">5. Semester</option>
+                <option value="6">6. Semester</option>
+                <option value="7">7. Semester</option>
+                <option value="8">8. Semester</option>
+            </select>
+        </label>
+        <label>
+            Status
+            <select>
+                <option [value]="">Alle</option>
+                <option value="OPEN">Open</option>
+                <option value="EXPORTED">Exported</option>
+            </select>
+        </label>
+    </div>
+    @if (documentations.length > 0) {
+        <table id="documentation-table">
+            <thead>
+                <tr>
+                    <th class="first-column">Titel</th>
+                    <th>Semester</th>
+                    <th>Status</th>
+                    <th>Erstellt am</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (documentation of documentations; track documentation.id) {
+                    <tr>
+                        <td class="first-column">{{ documentation.title }}</td>
+                        <td>{{ documentation.semester }}. Semester</td>
+                        <td>
+                            {{ documentation.state.toString() | lowercase }}
+                        </td>
+                        <td>
+                            {{ documentation.createdAt | date: 'dd.MM.yyyy' }}
+                        </td>
+                        <td class="flex-container">
+                            <a href="#" class="material-icons">delete</a>
+                            @if (
+                                documentation.state === DocumentationState.OPEN
+                            ) {
+                                <a href="#" class="material-icons">edit</a>
+                            } @else {
+                                <a href="#" class="material-icons"
+                                    >open_in_new</a
+                                >
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    } @else {
+        <p>
+            Keine Lerndokus Verfügbar. Erstelle eine
+            <a href="/create">neue Lerndoku</a>.
+        </p>
+    }
+</div>

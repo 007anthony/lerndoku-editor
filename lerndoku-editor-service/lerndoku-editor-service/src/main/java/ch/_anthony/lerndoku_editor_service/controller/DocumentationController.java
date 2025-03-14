@@ -2,6 +2,7 @@ package ch._anthony.lerndoku_editor_service.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import ch._anthony.lerndoku_editor_service.util.DocumentationState;
 
 @RestController
 @RequestMapping("/documentations")
+@CrossOrigin("http://localhost:4200")
 public class DocumentationController {
 
     private final DocumentationService documentationService;

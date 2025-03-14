@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 :root {
     font-family: Helvetica, sans-serif;
 }
@@ -10,6 +12,29 @@ a {
     &:hover {
         text-decoration: underline;
     }
+}
+
+label {
+    display: inline-block;
+    font-size: 0.7em;
+
+    & select, input {
+        display: block;
+        font-size: 1.3em;
+    }
+}
+
+
+select {
+    appearance: none;
+    width: fit-content;
+    padding: 0.5em;
+    padding-right: 30px;
+    border-radius: 0.25em;
+    border-color: #4E4E4E;
+    font-size: 1em;
+
+    background: url("./assets/arrow_drop_down_16dp_1F1F1F_FILL0_wght400_GRAD0_opsz20.svg") no-repeat 100%;
 }
 
 .flex-container {
