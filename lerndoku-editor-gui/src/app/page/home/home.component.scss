@@ -2,11 +2,18 @@
     text-align: left;
 }
 
-.table-container {
+#table-container {
     width: 100%;
     max-width: 1500px;
     min-width: 450px;
-    margin: 0 auto;
+    margin: 50px auto;
+}
+
+#action-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #documentation-table {

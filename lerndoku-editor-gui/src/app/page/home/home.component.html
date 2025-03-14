@@ -1,28 +1,31 @@
 <h1>Lerndokumentationen</h1>
-<div class="table-container">
-    <div id="filter-form">
-        <label>
-            Semester
-            <select [(ngModel)]="semester" (change)="changeSemester()">
-                <option selected="true" value="null">Alle</option>
-                <option value="1">1. Semester</option>
-                <option value="2">2. Semester</option>
-                <option value="3">3. Semester</option>
-                <option value="4">4. Semester</option>
-                <option value="5">5. Semester</option>
-                <option value="6">6. Semester</option>
-                <option value="7">7. Semester</option>
-                <option value="8">8. Semester</option>
-            </select>
-        </label>
-        <label>
-            Status
-            <select [(ngModel)]="state" (change)="changeState()">
-                <option selected="true" value="null">Alle</option>
-                <option value="OPEN">Open</option>
-                <option value="EXPORTED">Exported</option>
-            </select>
-        </label>
+<div id="table-container">
+    <div id="action-container">
+        <div id="filter-form">
+            <label>
+                Semester
+                <select [(ngModel)]="semester" (change)="changeSemester()">
+                    <option selected="true" value="null">Alle</option>
+                    <option value="1">1. Semester</option>
+                    <option value="2">2. Semester</option>
+                    <option value="3">3. Semester</option>
+                    <option value="4">4. Semester</option>
+                    <option value="5">5. Semester</option>
+                    <option value="6">6. Semester</option>
+                    <option value="7">7. Semester</option>
+                    <option value="8">8. Semester</option>
+                </select>
+            </label>
+            <label>
+                Status
+                <select [(ngModel)]="state" (change)="changeState()">
+                    <option selected="true" value="null">Alle</option>
+                    <option value="OPEN">Open</option>
+                    <option value="EXPORTED">Exported</option>
+                </select>
+            </label>
+        </div>
+        <a href="/create" class="btn btn-primary">Erstellen</a>
     </div>
     @if (documentations.length > 0) {
         <table id="documentation-table">
@@ -45,7 +48,7 @@
                         <td>
                             {{ documentation.createdAt | date: 'dd.MM.yyyy' }}
                         </td>
-                        <td class="flex-container">
+                        <td class="flex-container--end">
                             <a href="#" class="material-icons">delete</a>
                             @if (
                                 documentation.state === DocumentationState.OPEN

@@ -1,17 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
+$default-grey: #4E4E4E;
+
+$colors: (
+    'primary': #408EE7
+);
 
 :root {
     font-family: Helvetica, sans-serif;
 }
 
 a {
-    color: #4E4E4E;
+    color: $default-grey;
     text-decoration: none;
-
-    &:hover {
+    &[href]:hover {
         text-decoration: underline;
     }
+
+    
 }
 
 label {
@@ -31,13 +37,36 @@ select {
     padding: 0.5em;
     padding-right: 30px;
     border-radius: 0.25em;
-    border-color: #4E4E4E;
+    border-color: black;
     font-size: 1em;
 
     background: url("./assets/arrow_drop_down_16dp_1F1F1F_FILL0_wght400_GRAD0_opsz20.svg") no-repeat 100%;
 }
 
+.btn {
+    border: $default-grey solid 2px;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    
+    &:hover {
+        border-width: 3px;
+        text-decoration: none !important;
+    }
+
+    @each $name, $color in $colors {
+        &-#{$name} {
+            border-color: $color;
+            color: $color;
+        }
+    }
+}
+
 .flex-container {
     display: flex;
     gap: 5px;
+
+    &--end {
+        @extend .flex-container; 
+        justify-content: end;
+    }
 }
