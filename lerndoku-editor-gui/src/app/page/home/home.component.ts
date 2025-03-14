@@ -15,6 +15,7 @@ export default class HomeComponent implements OnInit {
     DocumentationState = DocumentationState;
 
     semester: string | null = null;
+    state: string | null = null;
 
     constructor(private docService: DocumentationService) {}
 
@@ -29,12 +30,28 @@ export default class HomeComponent implements OnInit {
         this.fetchDocumentations();
     }
 
+    changeState() {
+        if (this.state === 'null' || this.state === null) {
+            this.state = null;
+        }
+
+        this.fetchDocumentations();
+    }
+
     fetchDocumentations() {
-        let semester = null;
+        let semester: number | null = null;
+        let state: DocumentationState | null = null;
         if (this.semester !== null) {
             semester = +this.semester;
         }
-        this.docService.getDocumentations(semester, null).subscribe((data) => {
+
+        if (this.state !== null) {
+            state =
+                DocumentationState[
+                    this.state as keyof typeof DocumentationState
+                ];
+        }
+        this.docService.getDocumentations(semester, state).subscribe((data) => {
             this.documentations = data;
         });
     }

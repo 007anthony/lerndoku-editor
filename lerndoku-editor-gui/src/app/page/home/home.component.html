@@ -3,12 +3,8 @@
     <div id="filter-form">
         <label>
             Semester
-            <select
-                [(ngModel)]="semester"
-                name="semester"
-                (change)="changeSemester()"
-            >
-                <option selected="true" [value]="null">Alle</option>
+            <select [(ngModel)]="semester" (change)="changeSemester()">
+                <option selected="true" value="null">Alle</option>
                 <option value="1">1. Semester</option>
                 <option value="2">2. Semester</option>
                 <option value="3">3. Semester</option>
@@ -21,8 +17,8 @@
         </label>
         <label>
             Status
-            <select>
-                <option [value]="">Alle</option>
+            <select [(ngModel)]="state" (change)="changeState()">
+                <option selected="true" value="null">Alle</option>
                 <option value="OPEN">Open</option>
                 <option value="EXPORTED">Exported</option>
             </select>
