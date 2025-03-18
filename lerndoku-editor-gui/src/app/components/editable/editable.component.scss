@@ -1,0 +1,32 @@
+.editable {
+    border: black solid 1px;
+    border-radius: 10px;
+    &__toolbar {
+        list-style: none;
+        background-color: black;
+        margin: 0px;
+        padding: 5px 10px;
+        border-radius: 10px 10px 0px 0px;
+
+        a {
+            color: white;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+
+        &-text {
+            flex: 3;
+        }
+
+        &-image {
+            padding-left: 10px;
+            border-left: #D5D5D5 solid 1px;
+            flex: 1;
+        }
+    }
+}
