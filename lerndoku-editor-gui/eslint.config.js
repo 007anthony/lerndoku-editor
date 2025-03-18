@@ -37,7 +37,7 @@ module.exports = tseslint.config(
     eslintConfigPrettier,
     {
         rules: {
-            indent: 'error',
+            indent: ['error', {"ignoredNodes": ["PropertyDefinition"]}],
         },
     },
     {

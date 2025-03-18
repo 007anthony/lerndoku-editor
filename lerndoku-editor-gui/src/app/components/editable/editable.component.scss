@@ -21,6 +21,16 @@
 
         &-text {
             flex: 3;
+
+            counter-reset: heading;
+
+            h1 {
+                font-size: inherit;
+                &::before {
+                    counter-increment: heading;
+                    content: counter(heading) '. ';
+                }
+            }
         }
 
         &-image {

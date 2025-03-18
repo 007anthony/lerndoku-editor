@@ -1,10 +1,32 @@
 <div class="editable">
     <ul class="editable__toolbar">
-        <li><a href="javascript:void(0)">h1</a></li>
+        <li><a href="javascript:void(0)" (click)="changeHeading(1)">h1</a></li>
     </ul>
     <div class="editable__content">
-        <div class="editable__content-text">
-            <p contenteditable="true"><br /></p>
+        <div #editableContainer class="editable__content-text">
+            @for (paragraph of paragraphs; let i = $index; track i) {
+                @switch (paragraph.option) {
+                    @case ('h1') {
+                        <h1
+                            contenteditable="true"
+                            (input)="input(i)"
+                            (focus)="setParagraph(i)"
+                        >
+                            {{ paragraph.content }}
+                        </h1>
+                    }
+
+                    @default {
+                        <p
+                            contenteditable="true"
+                            (input)="input(i)"
+                            (focus)="setParagraph(i)"
+                        >
+                            {{ paragraph.content }}
+                        </p>
+                    }
+                }
+            }
         </div>
         <div class="editable__content-image">
             <button class="btn btn-primary">Bild hinzufügen</button>
