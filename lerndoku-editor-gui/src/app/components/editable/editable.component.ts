@@ -74,16 +74,10 @@ export default class EditableComponent implements AfterViewChecked {
         const paragraph = this.paragraphs[this.currentParagraph];
 
         if (paragraph.content && range) {
-            return paragraph.content.substring(range.startOffset);
+            return paragraph.content.substring(range.endOffset);
         }
 
         return undefined;
-    }
-
-    getRange() {
-        const selection = window.getSelection();
-
-        return selection?.getRangeAt(0);
     }
 
     removeTextAfterCaret() {
@@ -101,14 +95,9 @@ export default class EditableComponent implements AfterViewChecked {
         if (e.key === 'Enter') {
             e.preventDefault();
 
-            const range = this.getRange();
-
             this.paragraphs.splice(this.currentParagraph + 1, 0, {
                 option: 'p',
-                content:
-                    range?.startOffset === range?.endOffset
-                        ? this.getTextAfterCaret()
-                        : undefined,
+                content: this.getTextAfterCaret(),
             });
 
             this.removeTextAfterCaret();
