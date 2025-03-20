@@ -9,21 +9,19 @@
                     @case ('h1') {
                         <h1
                             contenteditable="true"
+                            [textContent]="paragraph.content"
                             (input)="input(i)"
                             (focus)="setParagraph(i)"
-                        >
-                            {{ paragraph.content }}
-                        </h1>
+                        ></h1>
                     }
 
                     @default {
                         <p
                             contenteditable="true"
+                            [textContent]="paragraph.content"
                             (input)="input(i)"
                             (focus)="setParagraph(i)"
-                        >
-                            {{ paragraph.content }}
-                        </p>
+                        ></p>
                     }
                 }
             }
